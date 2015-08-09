@@ -1,0 +1,10 @@
+Memory_size 10
+Lower_threshold 7
+Upper_threshold 9
+uname mskd
+create mskd 20 10
+mkdir mskd Desktop
+mkdir mskd Documents
+cd mskd ./.././Desktop
+cd mskd Documents
+mkdir mskd Downloads

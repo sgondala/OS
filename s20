@@ -1,0 +1,11 @@
+open abc
+write abc 10 aaaaaaaaaa
+write abc 4 abcd
+seek relative 10
+seek relative 5
+seek relative 3
+read abc 300
+read abc 300
+write abc 3 eee
+write abc 5 iiiii
+End
