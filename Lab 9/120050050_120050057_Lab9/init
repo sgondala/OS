@@ -1,0 +1,13 @@
+Memory_size 10
+Lower_threshold 7
+Upper_threshold 9
+uname sgondala
+uname mskd
+create mskd 20 10
+create sgondala 25 2
+mkdir mskd Desktop
+mkdir sgondala Desktop
+mkdir mskd Documents
+cd mskd ./Desktop/..././Desktop
+cd sgondala Desktop
+mkdir mskd Downloads

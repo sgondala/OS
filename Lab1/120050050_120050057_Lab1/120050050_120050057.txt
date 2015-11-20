@@ -1,0 +1,47 @@
+﻿Lab 1 - 120050050, 120050057.                
+
+
+Q1) 
+1. Cache size - 6144 KB. Address sizes   : 36 bits physical, 48 bits virtual. File - cpuinfo in /proc
+2. Family - 6. Model - 58. Model Name -  Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz. Cores - 4. Info found in cpuinfo file in /proc . 
+3.  Soft limit - 1024, Hard limit - 4096; The limit of max open files can be found at /proc/[pid]/limits.
+4. Preemption is the act of temporarily suspending a task with the intention of resuming the task at a later time. Not all tasks are preemptable. Eg: Kernel Functions. Preemption is used to give the illusion of Multitasking. In case of multiple processes running , Each process is allocated fixed time slots and the process is preempted after the allocated time and is resumed in a later turn. This is used in all modern OSes. But the disadvantage is that, adding the ability of preemption makes the code more complicated. Hence preemption ability is not usually provided in the case of simple embedded systems.
+
+
+Q2) For first - User time = 29.26s, Kernel time = 0.13s
+       For second, User time = 29.73s, Kernel time = 0.02s        
+       2nd program involves heavy calculations for every loop. So, in each loop user time spent is higher than in first program. So overall user time is higher than first. As each loop in 2nd program occupies significant higher time than a loop in first program, no. of loops completed in 30 seconds is less than the first one. As kernel time is same in both the programs  per loop, and no. of loops is lower in 2nd, Overall Kernel time is lower in 2nd. 
+
+
+Q3)
+1. 1) State R shows that a process is running.
+2) State Z is for a zombie process - A process which has terminated but has not yet been reaped by the parent. Until its parent calls “wait”, it will remain in the zombie state.
+3) State D - Uninterruptible sleep
+4) State S - Interruptible sleep (waiting for some event to complete)
+5) State T - stopped or begin traced
+1. One child is in sleep, other is in a while loop. And a while loop is put before the any waits.
+Zombie process :- The underlying program is no longer executing, but the process remains in the process table as a zombie process until its parent process calls the wait system call to read its exit status, at which point the process is removed from the process table, finally ending the process's lifetime. 
+1. Put a while loop in one of the childs, press Ctrl-Z. This leads to process being suspended. State is ‘T’
+
+
+Q4)
+1. a’s in first file - 1033614099. a’s in 2nd file - 950730752.
+2. CPU % for process 1 - 97.4%. CPU % for process 2 - 92.7%. Percentage of each process is calculated by calculating utime+stime of dividing it by hertz(100) to convert it into seconds. This seconds should be divided by the time the program is running. This gives percentage. 
+3. For 1  : Voluntary switches - 93, NonVoluntary - 3593. For 2  : Voluntary switches - 52, NonVoluntary switches - 2713.
+
+With renice
+
+1. For 1 - No. of a’s is 960468469. For 2 - No. of a’s is 984115886.
+2. %of CPU time used by first is 98.2%. Percentage used by 2nd is 99.8%. It is calculated in the same way as described above.   
+3. For 1 - Voluntary Context switches = 37, Involuntary = 3823. For 2 - Voluntary Context switches = 42, Involuntary = 3635.
+
+
+Q5) Current load average is 0.30.
+Load average after running program is 1.20.
+We can increase the load by forking. I have added 3 forks and as a  result, the load has gone upto 7.7. 
+
+
+Q6) 
+1. Signal number is 8
+2. SIGFPE is the signal 
+3. /proc/[pid]/status contains SigCgt. Expanding it into binary shows that the eighth bit is 1. It means the signal number is 8. In the man page - man 7 signal, one can find that signal means a Floating point Exception

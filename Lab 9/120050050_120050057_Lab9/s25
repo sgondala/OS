@@ -1,0 +1,7 @@
+open def
+write def 5 qwert
+seek relative 20
+write def 5 sdfgh
+read abc 20
+Access 1,1234
+End

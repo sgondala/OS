@@ -1,0 +1,9 @@
+open abc
+write abc 4 ijkl
+seek relative 300
+read abc 4
+write abc 4 rtyu
+Access 1,1112
+Access 2,1132
+Access 3,1132
+End
